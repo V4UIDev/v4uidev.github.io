@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ term.name }} | {{ config.title }}</title>
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+        <nav>
+            <a href="{{ config.base_url }}">Home</a>
+            <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Posts in "{{ term.name }}"</h2>
+        <section class="posts">
+            {% for page in term.pages %}
+            <article>
+                <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                <time>{{ page.date }}</time>
+                <p>{{ page.summary | safe }}</p>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

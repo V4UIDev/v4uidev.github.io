@@ -1,0 +1,18 @@
+# The URL the site will be built for
+base_url = "https://v4uidev.github.io"
+title = "Jared Forte"
+description = "My personal website"
+compile_sass = true
+build_search_index = true
+
+taxonomies = [
+    { name = "tags", feed = true },
+    { name = "categories", feed = true, paginate_by = 10 },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+[extra]
+author = "Jared Forte"
