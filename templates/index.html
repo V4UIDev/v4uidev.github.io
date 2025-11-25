@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config.title }}</title>
+    <title>{{ config.title }} | Jared Forte</title>
     <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
 </head>
 <body>
     <header>
         <h1>{{ config.title }}</h1>
-        <p>{{ config.description }}</p>
         <nav>
             <a href="{{ config.base_url }}">Home</a>
             <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
+            <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
         </nav>
     </header>
     

@@ -8,15 +8,15 @@
 </head>
 <body>
     <header>
-        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+        <h1>{{ config.title }}</h1>
         <nav>
             <a href="{{ config.base_url }}">Home</a>
             <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
+            <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
         </nav>
     </header>
     
     <main>
-        <h2>All Categories</h2>
         <div class="category-list">
             {% set categories_taxonomy = get_taxonomy(kind="categories") %}
             {% for term in categories_taxonomy.items %}

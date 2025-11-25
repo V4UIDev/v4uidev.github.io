@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me | {{ config.title }}</title>
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+</head>
+<body>
+    <header>
+    <h1>{{ config.title }}</h1>
+    <nav>
+        <a href="{{ config.base_url }}">Home</a>
+        <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
+        <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
+    </nav>
+    </header>
+<p>placeholder</p>
+</body>
+</html>
