@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Jared Forte - Technology</title>
+    <subtitle>My personal website</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://v4uidev.github.io/categories/technology/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://v4uidev.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-11-24T00:00:00+00:00</updated>
+    <id>https://v4uidev.github.io/categories/technology/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My First Post</title>
+        <published>2025-11-24T00:00:00+00:00</published>
+        <updated>2025-11-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://v4uidev.github.io/my-first-post/"/>
+        <id>https://v4uidev.github.io/my-first-post/</id>
+        
+        <summary type="html">&lt;p&gt;Welcome to my blog! This is my first post using Zola.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
