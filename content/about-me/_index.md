@@ -7,7 +7,8 @@ template = "about-me.html"
 Hello! My name is Jared. I currently work as a Systems Administrator where I work with various types of technology, mostly Linux and hardware.
 <br><br>
 
-<img src="me.jpg" class="float-right" style="max-width: 20%;">
+<img src="/images/me.jpg" class="float-right" style="max-width: 20%;">
+
 
 My hobbies include:
 <br><br>
