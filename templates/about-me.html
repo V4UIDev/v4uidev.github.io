@@ -15,6 +15,13 @@
         <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
     </nav>
     </header>
-<p>placeholder</p>
+    <main>
+        <article>
+            <h2>{{ section.title }}</h2>
+            <div class="content">
+                {{ section.content | safe }}
+            </div>
+        </article>
+    </main>
 </body>
 </html>

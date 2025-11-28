@@ -142,3 +142,14 @@ time {
 .content {
     margin-top: 1.5rem;
 }
+
+img {
+    max-width: 50%;
+    height: auto;
+}
+
+img.float-right {
+    float: right;
+    max-width: 40%;     /* adjust as needed */
+    margin: 0 0 1rem 1rem;
+}

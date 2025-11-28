@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://v4uidev.github.io"
+base_url = "https://jaredforte.com"
 title = "Jared Forte"
 description = "My personal website"
 compile_sass = true
