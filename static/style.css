@@ -148,6 +148,11 @@ img {
     height: auto;
 }
 
+img.small-size {
+    max-width: 30%;
+    height: auto;
+}
+
 img.float-right {
     float: right;
     max-width: 40%;     /* adjust as needed */
