@@ -44,8 +44,9 @@ I made steady progress, but did not look after myself, a mistake I have made man
 <br><br>
 I felt a slight lift on after seeing a support crew at the base of Barrow, the idea that I have done my first solo unsupported ultra distance made me feel more satisfied, as I hobbled back to Keswick, also knocking over an hour off the last time! I really recommend having a go at a solo, unsupported long distance run, it adds a deal of complexity but I feel it is quite empowering.
 <br><br>
+
 # Summary
-<br><br>
+
 I highly recommend the Tea Round, a 10/10 from me for both experiences. Looking at the completion log it is a very popular challenge so it is likely you will see people attempting it enroute. It is also good you can do it the way you want to, and there is no time pressure.
 <br><br>
 I hope one done to have another go, and see if I can get a faster time. Who knows, maybe I'll even go counterclockwise.
