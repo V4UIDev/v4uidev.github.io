@@ -16,7 +16,7 @@ The most popular way that the MCP server connects to this traditional data, is t
 
 ## Exploring MCP - The Spothole API MCP
 
-I decided to have a go at creating my own MCP server, so I used an application programming interface (API) called Spothole. Spothole is an API that retrieves "spots" for amateur radio - a spot is a way for someone to tell people over the Internet that they are on a certain frequency, and are looking to make contacts. Ian Renton aggregates these spots from different providers into one API, which means we can access all of them from one place.
+I decided to have a go at creating my own MCP server, so I used an application programming interface (API) called [Spothole](https://spothole.app/). Spothole is an API that retrieves "spots" for amateur radio - a spot is a way for someone to tell people over the Internet that they are on a certain frequency, and are looking to make contacts. Ian Renton aggregates these spots from different providers into one API, which means we can access all of them from one place.
 <br><br>
 The main endpoint I was interested was the GET endpoint to /spots, where we can get the spots, based on parameters such as the continent it is from, what transmission mode, what amateur radio band, and other parameters.
 <br><br>
