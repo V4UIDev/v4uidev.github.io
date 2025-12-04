@@ -158,3 +158,20 @@ img.float-right {
     max-width: 40%;     /* adjust as needed */
     margin: 0 0 1rem 1rem;
 }
+
+code {
+    /* display: block; */
+    font-family: "Fira Code", monospace;
+    font-size: 0.9rem;
+    background-color: #1e1e2e;
+    color:#cdd6f4;
+    padding: 1rem;
+    display: inline-block;
+    min-width: 100%;   
+}
+
+pre {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: 6px;
+}
