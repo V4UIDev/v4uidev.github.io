@@ -18,3 +18,16 @@ dark_theme = "catppuccin-mocha"
 
 [extra]
 author = "Jared Forte"
+
+# Navigation links shown in the header and footer of every page.
+[[extra.nav]]
+name = "Home"
+path = "/"
+
+[[extra.nav]]
+name = "Categories"
+path = "/categories/"
+
+[[extra.nav]]
+name = "About me"
+path = "/about-me/"

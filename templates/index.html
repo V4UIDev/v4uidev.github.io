@@ -1,38 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config.title }} | Jared Forte</title>
-    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
-</head>
-<body>
-    <header>
-        <h1>{{ config.title }}</h1>
-        <nav>
-            <a href="{{ config.base_url }}">Home</a>
-            <a href="{{ get_url(path='categories/') }}">Categories</a>
-            <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="posts">
-            {% for page in section.pages %}
-            <article>
-                <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
-                <time>{{ page.date }}</time>
-                {% if page.taxonomies.categories %}
-                <div class="categories">
-                    {% for category in page.taxonomies.categories %}
-                    <a href="{{ get_taxonomy_url(kind='categories', term=category) }}" class="category">{{ category }}</a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <p>{{ page.summary | safe }}</p>
-            </article>
-            {% endfor %}
-        </section>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<section class="container">
+    <h2 class="section-title">Latest posts</h2>
+    <div class="post-grid">
+        {% for page in section.pages %}
+        {{ <post_card page={page} /> }}
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

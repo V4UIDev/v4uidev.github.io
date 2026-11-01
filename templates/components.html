@@ -1,0 +1,44 @@
+{# Shared building blocks. Components only see the parameters passed to them. #}
+
+{# A category/tag chip list. kind is "categories" or "tags". #}
+{% component chips(kind: string, terms) %}
+<ul class="chips" aria-label="{{ kind | capitalize }}">
+    {% for term in terms %}
+    <li><a class="chip chip--{{ kind }}" href="{{ get_taxonomy_url(kind=kind, term=term) }}">{{ term }}</a></li>
+    {% endfor %}
+</ul>
+{% endcomponent chips %}
+
+{#
+  Plain-text excerpt for cards and meta descriptions. Uses the post's summary when it has one,
+  otherwise the text from the first paragraph on (skipping any opening heading).
+#}
+{% component excerpt(page) %}{{ (page.summary or (page.content | split(pat="<p>"))[1:] | join(sep=" ")) | striptags | trim | truncate(length=160) | safe }}{% endcomponent excerpt %}
+
+{# A post summary card for listings. #}
+{% component post_card(page) %}
+{% set cover = page.extra.cover or "" %}
+<article class="post-card{% if not cover %} post-card--no-cover{% endif %}">
+    <div class="post-card__media" aria-hidden="true">
+        {% if cover %}<img src="{{ get_url(path=cover) }}" alt="" loading="lazy">{% endif %}
+    </div>
+    <div class="post-card__body">
+        <p class="post-card__meta"><time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time></p>
+        <h3 class="post-card__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+        <p class="post-card__summary">{{ <excerpt page={page} /> }}</p>
+        {% if page.taxonomies.categories %}{{ <chips kind="categories" terms={page.taxonomies.categories} /> }}{% endif %}
+    </div>
+</article>
+{% endcomponent post_card %}
+
+{#
+  An image with optional caption, for use in post Markdown:
+  {{ <figure src="/images/photo.jpg" alt="Describe the photo" layout="float" /> }}
+  layout: "full" (default), "small" or "float" (floats right on wide screens).
+#}
+{% component figure(src: string, alt: string, caption: string = "", layout: string = "full") %}
+<figure class="figure figure--{{ layout }}">
+    <img src="{{ src }}" alt="{{ alt }}" loading="lazy">
+    {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>
+{% endcomponent figure %}
