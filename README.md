@@ -96,5 +96,5 @@ Pushing to `main` builds the site and deploys it to <https://jaredforte.com>. Pu
 Zola sometimes makes breaking changes, so it is pinned. To upgrade:
 
 1. Read the [changelog](https://github.com/getzola/zola/blob/master/CHANGELOG.md) for every version between the current one and the new one.
-2. Change `ZOLA_VERSION` in `.github/workflows/main.yml` and install the same version locally.
+2. Change `ZOLA_VERSION` in `.github/workflows/main.yml`, and set `ZOLA_SHA256` to the checksum GitHub shows next to the `x86_64-unknown-linux-gnu.tar.gz` file on that release's page. Install the same version locally.
 3. Run `zola build` and fix any errors. Check a few pages in `zola serve` before merging.
