@@ -1,0 +1,239 @@
+// Page shell: containers, header, footer, section headings.
+
+.container {
+    width: 100%;
+    max-width: var(--width-wide);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+
+    @media (min-width: $bp-small) {
+        --gutter: 1.5rem;
+    }
+}
+
+.container--narrow {
+    max-width: calc(var(--width-prose) + 2 * var(--gutter));
+}
+
+// Header
+.site-header,
+.site-footer {
+    // Lighter accent so links and focus rings stay visible on the dark bands
+    --color-accent: var(--color-header-accent);
+}
+
+.site-header {
+    background: var(--color-header-bg);
+    color: var(--color-header-text);
+}
+
+.site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+    padding-block: var(--space-3);
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        padding-block: var(--space-1);
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &[aria-current="page"] {
+            border-bottom-color: var(--color-accent);
+        }
+    }
+}
+
+main {
+    padding-bottom: var(--space-6);
+}
+
+// Section headings on listing pages
+.section-kicker {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-moss);
+}
+
+.section-title {
+    margin: var(--space-5) 0 var(--space-4);
+    font-size: var(--text-2xl);
+}
+
+.section-kicker + .section-title {
+    margin-top: var(--space-1);
+}
+
+// Home hero
+.hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(20rem, 60vh, 34rem);
+    background: var(--color-header-bg);
+    color: var(--color-on-photo);
+    overflow: hidden;
+    isolation: isolate;
+    @include photo-scrim;
+    @include ridgeline-edge(clamp(2rem, 5vw, 4.5rem));
+}
+
+.hero__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+}
+
+.hero__inner {
+    padding-bottom: clamp(3.5rem, 9vw, 6.5rem);
+}
+
+.hero__title {
+    margin: 0;
+    font-size: var(--text-3xl);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-shadow: var(--shadow-text);
+}
+
+.hero__tagline {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-lg);
+    font-style: italic;
+}
+
+// Post and page header band
+.post-hero {
+    position: relative;
+    background: var(--color-surface-alt);
+    overflow: hidden;
+    isolation: isolate;
+    margin-bottom: var(--space-5);
+    @include ridgeline-edge(2.5rem);
+}
+
+.post-hero:not(.post-hero--photo) {
+    @include contour-texture;
+}
+
+.post-hero__inner {
+    position: relative;
+    padding-top: var(--space-6);
+    padding-bottom: calc(var(--space-6) + 1rem);
+}
+
+.post-hero--photo {
+    min-height: clamp(18rem, 50vh, 28rem);
+    display: flex;
+    align-items: flex-end;
+    color: var(--color-on-photo);
+    background: var(--color-header-bg);
+    @include photo-scrim(var(--color-scrim-soft), 25%, 80%);
+
+    .post-hero__inner {
+        width: 100%;
+    }
+
+    // Override the muted meta-line colour, which is too dark on a photo
+    .post-header__meta {
+        color: inherit;
+    }
+
+    .chip {
+        color: var(--color-on-photo);
+        border-color: var(--color-on-photo);
+
+        &:hover {
+            background: var(--color-on-photo);
+            color: var(--color-text-on-light);
+        }
+    }
+}
+
+.post-hero__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-header__meta {
+    margin: 0 0 var(--space-2);
+    @include meta-line;
+}
+
+.post-header__title {
+    margin: 0 0 var(--space-3);
+    font-size: var(--text-2xl);
+}
+
+.post-footer {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+// Footer
+.site-footer {
+    background: var(--color-header-bg);
+    color: var(--color-header-text);
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+    padding-block: var(--space-4);
+
+    p {
+        margin: 0;
+    }
+}
+
+.site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+
+    a {
+        color: inherit;
+    }
+}

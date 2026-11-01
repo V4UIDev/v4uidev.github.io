@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ taxonomy.name | capitalize }} | {{ config.title }}</title>
-    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
-</head>
-<body>
-    <header>
-        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
-        <nav>
-            <a href="{{ config.base_url }}">Home</a>
-            <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
-            <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
-        </nav>
-    </header>
+{% extends "base.html" %}
 
-    <main>
-        <h2>{{ taxonomy.name | capitalize }}</h2>
-        <section class="terms">
-            {% for term in terms %}
-            <article class="term">
-                <h3>
-                    <a href="{{ term.permalink }}">{{ term.name }}</a>
-                </h3>
-                <p>{{ term.pages | length }} posts</p>
-            </article>
-            {% endfor %}
-        </section>
-    </main>
-</body>
-</html>
+{% block title %}{{ taxonomy.name | capitalize }} | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section class="container">
+    <h1 class="section-title">{{ taxonomy.name | capitalize }}</h1>
+    <ul class="term-grid">
+        {% for term in terms %}
+        <li class="term">
+            <a class="term__name" href="{{ term.permalink }}">{{ term.name }}</a>
+            <span class="term__count">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock content %}

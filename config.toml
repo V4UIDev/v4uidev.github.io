@@ -10,9 +10,26 @@ taxonomies = [
     { name = "categories", feed = true, paginate_by = 10 },
 ]
 
-[markdown]
-highlight_code = true
-highlight_theme = "css"
+[markdown.highlighting]
+error_on_missing_language = true
+style = "class"
+light_theme = "catppuccin-latte"
+dark_theme = "catppuccin-mocha"
 
 [extra]
 author = "Jared Forte"
+# Photo behind the home page title (a path inside static/)
+hero_image = "images/20250820_071517.jpg"
+
+# Navigation links shown in the header and footer of every page.
+[[extra.nav]]
+name = "Home"
+path = "/"
+
+[[extra.nav]]
+name = "Categories"
+path = "/categories/"
+
+[[extra.nav]]
+name = "About me"
+path = "/about-me/"
