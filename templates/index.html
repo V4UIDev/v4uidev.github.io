@@ -11,7 +11,7 @@
         <h1>{{ config.title }}</h1>
         <nav>
             <a href="{{ config.base_url }}">Home</a>
-            <a href="{{ get_url(path='@/categories/_index.md') }}">Categories</a>
+            <a href="{{ get_url(path='categories/') }}">Categories</a>
             <a href="{{ get_url(path='@/about-me/_index.md') }}">About me</a>
         </nav>
     </header>
@@ -25,7 +25,7 @@
                 {% if page.taxonomies.categories %}
                 <div class="categories">
                     {% for category in page.taxonomies.categories %}
-                    <a href="{{ get_taxonomy_url(kind='categories', name=category) }}" class="category">{{ category }}</a>
+                    <a href="{{ get_taxonomy_url(kind='categories', term=category) }}" class="category">{{ category }}</a>
                     {% endfor %}
                 </div>
                 {% endif %}

@@ -1,18 +1,27 @@
-on: push
+on:
+  push:
+  pull_request:
 name: Build and deploy GH Pages
+
+env:
+  # Bump deliberately after reading https://github.com/getzola/zola/blob/master/CHANGELOG.md
+  ZOLA_VERSION: "0.23.6"
+
 jobs:
   # Build the site
   build:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      
+
       - name: Install zola
-        run: sudo snap install --edge zola
+        run: |
+          curl -sSL "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin zola
+          zola --version
 
       - name: Build site
         run: zola build
@@ -25,6 +34,8 @@ jobs:
 
   # Deploy to GitHub Pages
   deploy:
+    # Only pushes to main deploy; branches and pull requests just build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     # Add a dependency to the build job
     needs: build
 

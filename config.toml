@@ -10,9 +10,11 @@ taxonomies = [
     { name = "categories", feed = true, paginate_by = 10 },
 ]
 
-[markdown]
-highlight_code = true
-highlight_theme = "css"
+[markdown.highlighting]
+error_on_missing_language = true
+style = "class"
+light_theme = "catppuccin-latte"
+dark_theme = "catppuccin-mocha"
 
 [extra]
 author = "Jared Forte"
