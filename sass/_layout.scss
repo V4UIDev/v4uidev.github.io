@@ -70,7 +70,6 @@
 }
 
 main {
-    display: block;
     padding-bottom: var(--space-6);
 }
 
@@ -93,36 +92,6 @@ main {
     margin-top: var(--space-1);
 }
 
-// Mountain motifs: SVGs used as masks so they take their colour from tokens
-@mixin contour-texture($opacity: 0.18) {
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: var(--color-contour);
-        opacity: $opacity;
-        mask: url("svg/contours.svg") center / 600px 600px repeat;
-        -webkit-mask: url("svg/contours.svg") center / 600px 600px repeat;
-        pointer-events: none;
-    }
-}
-
-// A ridgeline silhouette along the bottom edge, filled with the page background
-@mixin ridgeline-edge($height: 3rem) {
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -1px;
-        height: $height;
-        background: var(--color-bg);
-        mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
-        -webkit-mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
-        pointer-events: none;
-    }
-}
-
 // Home hero
 .hero {
     position: relative;
@@ -133,16 +102,8 @@ main {
     color: var(--color-on-photo);
     overflow: hidden;
     isolation: isolate;
+    @include photo-scrim;
     @include ridgeline-edge(clamp(2rem, 5vw, 4.5rem));
-
-    // Darkening scrim keeps the title readable over any photo
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        background: linear-gradient(to top, var(--color-scrim) 10%, transparent 70%);
-    }
 }
 
 .hero__img {
@@ -180,8 +141,11 @@ main {
     overflow: hidden;
     isolation: isolate;
     margin-bottom: var(--space-5);
-    @include contour-texture;
     @include ridgeline-edge(2.5rem);
+}
+
+.post-hero:not(.post-hero--photo) {
+    @include contour-texture;
 }
 
 .post-hero__inner {
@@ -196,20 +160,13 @@ main {
     align-items: flex-end;
     color: var(--color-on-photo);
     background: var(--color-header-bg);
-
-    // Photo replaces the contour texture; reuse ::before as the scrim
-    &::before {
-        z-index: -1;
-        opacity: 1;
-        mask: none;
-        -webkit-mask: none;
-        background: linear-gradient(to top, var(--color-scrim) 25%, var(--color-scrim-soft) 80%);
-    }
+    @include photo-scrim(var(--color-scrim-soft), 25%, 80%);
 
     .post-hero__inner {
         width: 100%;
     }
 
+    // Override the muted meta-line colour, which is too dark on a photo
     .post-header__meta {
         color: inherit;
     }
@@ -236,11 +193,7 @@ main {
 
 .post-header__meta {
     margin: 0 0 var(--space-2);
-    font-family: var(--font-ui);
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    @include meta-line;
 }
 
 .post-header__title {

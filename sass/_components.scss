@@ -46,6 +46,11 @@
     }
 }
 
+// Posts without a cover photo show the contour texture instead
+.post-card--no-cover .post-card__media {
+    @include contour-texture(0.4);
+}
+
 .post-card__body {
     display: flex;
     flex-direction: column;
@@ -56,11 +61,7 @@
 
 .post-card__meta {
     margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    @include meta-line;
 }
 
 .post-card__title {
@@ -70,13 +71,7 @@
     a {
         color: var(--color-text);
         text-decoration: none;
-
-        // Whole card is clickable
-        &::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-        }
+        @include stretched-link;
     }
 }
 
@@ -158,12 +153,7 @@
     letter-spacing: 0.04em;
     color: var(--color-text);
     text-decoration: none;
-
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-    }
+    @include stretched-link;
 }
 
 .term__count {
@@ -192,7 +182,7 @@
 }
 
 // On narrow screens floated images sit centred at a modest size instead
-@media (max-width: $bp-small) {
+@media (max-width: #{$bp-small - 0.01rem}) {
     .figure--float {
         max-width: 70%;
         margin-inline: auto;
@@ -210,16 +200,8 @@
         width: 40%;
         margin: 0.3em 0 var(--space-3) var(--space-4);
     }
-}
 
-// Posts without a cover photo show the contour texture instead
-.post-card--no-cover .post-card__media {
-    position: relative;
-    @include contour-texture(0.4);
-}
-
-// Two small figures in a row sit side by side, as the original posts laid them out
-@media (min-width: $bp-small) {
+    // Two small figures in a row sit side by side
     .figure--small:has(+ .figure--small),
     .figure--small + .figure--small {
         display: inline-block;

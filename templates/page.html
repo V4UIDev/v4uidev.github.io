@@ -12,7 +12,7 @@
         <img class="post-hero__img" src="{{ img.url }}" alt="" fetchpriority="high">
         {% endif %}
         <div class="post-hero__inner container container--narrow">
-            <p class="post-header__meta"><time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time></p>
+            <p class="post-header__meta">{{ <post_date date={page.date} /> }}</p>
             <h1 class="post-header__title">{{ page.title }}</h1>
             {% if page.taxonomies.categories %}{{ <chips kind="categories" terms={page.taxonomies.categories} /> }}{% endif %}
         </div>

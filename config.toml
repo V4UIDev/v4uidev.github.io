@@ -18,6 +18,8 @@ dark_theme = "catppuccin-mocha"
 
 [extra]
 author = "Jared Forte"
+# Photo behind the home page title (a path inside static/)
+hero_image = "images/20250820_071517.jpg"
 
 # Navigation links shown in the header and footer of every page.
 [[extra.nav]]

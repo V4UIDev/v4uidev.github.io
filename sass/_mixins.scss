@@ -1,0 +1,60 @@
+// Shared style patterns used by the layout and component partials.
+
+// Topographic contour lines. The SVG is used as a mask so the lines take their colour from a token.
+@mixin contour-texture($opacity: 0.18) {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--color-contour);
+        opacity: $opacity;
+        mask: url("svg/contours.svg") center / 600px 600px repeat;
+        -webkit-mask: url("svg/contours.svg") center / 600px 600px repeat;
+        pointer-events: none;
+    }
+}
+
+// A ridgeline silhouette along the bottom edge, filled with the page background colour.
+@mixin ridgeline-edge($height: 3rem) {
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: $height;
+        background: var(--color-bg);
+        mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
+        -webkit-mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
+        pointer-events: none;
+    }
+}
+
+// Darkening gradient behind text that sits on a photo, so the text stays readable.
+@mixin photo-scrim($top-colour: transparent, $from: 10%, $to: 70%) {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(to top, var(--color-scrim) $from, $top-colour $to);
+    }
+}
+
+// Stretches a link over its nearest positioned ancestor, making a whole card clickable.
+@mixin stretched-link {
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+}
+
+// Small uppercase line for dates and similar metadata.
+@mixin meta-line {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}

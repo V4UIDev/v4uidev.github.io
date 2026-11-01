@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block hero %}
-{% set hero_path = "images/20250820_071517.jpg" %}
+{% set hero_path = config.extra.hero_image %}
 {% set small = resize_image(path=hero_path, width=800, op="fit_width") %}
 {% set medium = resize_image(path=hero_path, width=1400, op="fit_width") %}
 {% set large = resize_image(path=hero_path, width=1920, op="fit_width") %}

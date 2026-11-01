@@ -36,7 +36,6 @@
 
 // ---- Breakpoints (Sass, used in media queries) ---------------------------
 $bp-small: 40rem;
-$bp-medium: 64rem;
 
 :root {
     // Type
@@ -86,28 +85,20 @@ $bp-medium: 64rem;
     --color-scrim-soft: rgba(0, 0, 0, 0.15);
 }
 
-@mixin dark-colours {
-    // Colour: dark (night sky, moonlit snow)
-    --color-bg: #11171c;
-    --color-surface: #182128;
-    --color-surface-alt: #202b33;
-    --color-text: #e7e8e3;
-    --color-text-muted: #a3adb3;
-    --color-border: #2c3943;
-    --color-moss: #9cbf8f;
-    --color-accent: #f08a4b;
-    --color-header-bg: #0b1014;
-    --color-header-text: #e7e8e3;
-    --color-header-accent: #f08a4b;
-    --color-contour: #9cbf8f;
-    --color-scrim: rgba(5, 8, 10, 0.75);
-    --color-on-photo: #ffffff;
-    --color-text-on-light: #1f2528;
-    --color-scrim-soft: rgba(0, 0, 0, 0.15);
-}
-
+// Colour: dark (night sky, moonlit snow). Only the colours that differ from light mode.
 @media (prefers-color-scheme: dark) {
     :root {
-        @include dark-colours;
+        --color-bg: #11171c;
+        --color-surface: #182128;
+        --color-surface-alt: #202b33;
+        --color-text: #e7e8e3;
+        --color-text-muted: #a3adb3;
+        --color-border: #2c3943;
+        --color-moss: #9cbf8f;
+        --color-accent: #f08a4b;
+        --color-header-bg: #0b1014;
+        --color-header-text: #e7e8e3;
+        --color-contour: #9cbf8f;
+        --color-scrim: rgba(5, 8, 10, 0.75);
     }
 }

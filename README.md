@@ -68,10 +68,12 @@ You can also add `caption="..."` to show a caption under the image. Always fill 
 | Colours (light and dark mode), fonts, spacing | `sass/_tokens.scss` |
 | Page shell: header, nav, hero, footer | `sass/_layout.scss`, `templates/base.html` |
 | Cards, chips, figures | `sass/_components.scss`, `templates/components.html` |
+| Shared patterns (contour lines, ridgeline edge, photo scrim) | `sass/_mixins.scss` |
 | Reading styles for post text | `sass/_base.scss` |
-| Home page photo | `templates/index.html` (`hero_path`) |
+| Home page photo | `hero_image` in `config.toml` |
+| Date format | `post_date` in `templates/components.html` |
 
-Every colour in the stylesheets comes from `sass/_tokens.scss`. Light-mode colours are under `:root`, and dark-mode colours are in the `dark-colours` block below them. Keep text readable: aim for a contrast ratio of at least 4.5:1 against the background.
+Every colour in the stylesheets comes from `sass/_tokens.scss`. Light-mode colours are under `:root`, and the dark-mode block below them overrides the ones that change. Keep text readable: aim for a contrast ratio of at least 4.5:1 against the background.
 
 The fonts (Barlow Condensed and Source Serif 4) are in `static/fonts/` with their licences.
 
