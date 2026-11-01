@@ -1,0 +1,108 @@
+// Design tokens. Every colour, font, size and spacing value the site uses lives here.
+// Change the look by editing this file; components only reference these tokens.
+
+// ---- Fonts --------------------------------------------------------------
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("fonts/barlow-condensed-latin-600-normal.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("fonts/source-serif-4-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("fonts/source-serif-4-latin-400-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Source Serif 4";
+    src: url("fonts/source-serif-4-latin-600-normal.woff2") format("woff2");
+    font-weight: 600;
+    font-display: swap;
+}
+
+// ---- Breakpoints (Sass, used in media queries) ---------------------------
+$bp-small: 40rem;
+$bp-medium: 64rem;
+
+:root {
+    // Type
+    --font-heading: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --font-body: "Source Serif 4", Georgia, serif;
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Fira Code", Consolas, monospace;
+
+    --text-sm: 0.875rem;
+    --text-base: 1.125rem;
+    --text-lg: 1.375rem;
+    --text-xl: 1.75rem;
+    --text-2xl: clamp(2rem, 5vw, 3rem);
+    --text-3xl: clamp(2.5rem, 8vw, 4.5rem);
+
+    // Space
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 4rem;
+
+    --gutter: 1rem;
+    --width-wide: 72rem;
+    --width-prose: 42rem;
+    --radius: 10px;
+    --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    // Colour: light (snow, granite, slate, moss, summit orange)
+    --color-bg: #f6f5f1;
+    --color-surface: #ffffff;
+    --color-surface-alt: #ecebe5;
+    --color-text: #1f2528;
+    --color-text-muted: #525c63;
+    --color-border: #d6d7d1;
+    --color-moss: #4d6b45;
+    --color-accent: #b4481c;
+    --color-header-bg: #1f2a30;
+    --color-header-text: #f6f5f1;
+    --color-header-accent: #f08a4b;
+    --color-contour: #4d6b45;
+    --color-scrim: rgba(12, 17, 21, 0.72);
+    --color-on-photo: #ffffff;
+}
+
+@mixin dark-colours {
+    // Colour: dark (night sky, moonlit snow)
+    --color-bg: #11171c;
+    --color-surface: #182128;
+    --color-surface-alt: #202b33;
+    --color-text: #e7e8e3;
+    --color-text-muted: #a3adb3;
+    --color-border: #2c3943;
+    --color-moss: #9cbf8f;
+    --color-accent: #f08a4b;
+    --color-header-bg: #0b1014;
+    --color-header-text: #e7e8e3;
+    --color-header-accent: #f08a4b;
+    --color-contour: #9cbf8f;
+    --color-scrim: rgba(5, 8, 10, 0.75);
+    --color-on-photo: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-colours;
+    }
+}
