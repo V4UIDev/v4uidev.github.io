@@ -4,6 +4,8 @@ date = 2025-12-13
 [taxonomies]
 categories = ["Running"]
 tags = ["fell-running", "ultra-running"]
+[extra]
+cover = "/images/drtimstriangle.jpg"
 +++
 
 # Introduction

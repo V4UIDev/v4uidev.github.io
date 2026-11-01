@@ -4,6 +4,8 @@ date = 2025-12-28
 [taxonomies]
 categories = ["Running"]
 tags = ["mountaineering", "fell-running", "ultra-running"]
+[extra]
+cover = "/images/cadair-view.jpg"
 +++
 The Corris Round is a route devised by 11 year old at the time Tom and his dad, both locals to the village of Corris in Wales. The route is about 60km (37 miles) and 3,500m climb (11,500ft), and takes in the Tarren range, Cadair Idris and Maesglase. It was made as a local equivalent to bigger rounds such as the Bob Graham or Paddy Buckley, and one which was local to them so they could do it during lockdown.
 <br><br>

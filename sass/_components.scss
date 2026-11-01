@@ -32,11 +32,14 @@
 }
 
 .post-card__media {
+    position: relative;
     aspect-ratio: 16 / 9;
+    overflow: hidden;
     background: var(--color-surface-alt);
 
     img {
-        display: block;
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -199,4 +202,10 @@
         width: 40%;
         margin: 0.3em 0 var(--space-3) var(--space-4);
     }
+}
+
+// Posts without a cover photo show the contour texture instead
+.post-card--no-cover .post-card__media {
+    position: relative;
+    @include contour-texture(0.4);
 }

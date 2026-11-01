@@ -4,8 +4,10 @@
 
 {% block content %}
 <article class="post">
-    <header class="post-header container container--narrow">
-        <h1 class="post-header__title">{{ section.title }}</h1>
+    <header class="post-hero">
+        <div class="post-hero__inner container container--narrow">
+            <h1 class="post-header__title">{{ section.title }}</h1>
+        </div>
     </header>
     <div class="prose container container--narrow">
         {{ section.content | safe }}

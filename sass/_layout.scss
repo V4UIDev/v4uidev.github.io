@@ -93,10 +93,145 @@ main {
     margin-top: var(--space-1);
 }
 
-// Post header
-.post-header {
-    padding-top: var(--space-5);
-    padding-bottom: var(--space-4);
+// Mountain motifs: SVGs used as masks so they take their colour from tokens
+@mixin contour-texture($opacity: 0.18) {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--color-contour);
+        opacity: $opacity;
+        mask: url("svg/contours.svg") center / 600px 600px repeat;
+        -webkit-mask: url("svg/contours.svg") center / 600px 600px repeat;
+        pointer-events: none;
+    }
+}
+
+// A ridgeline silhouette along the bottom edge, filled with the page background
+@mixin ridgeline-edge($height: 3rem) {
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: $height;
+        background: var(--color-bg);
+        mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
+        -webkit-mask: url("svg/ridgeline.svg") bottom / 100% 100% no-repeat;
+        pointer-events: none;
+    }
+}
+
+// Home hero
+.hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(20rem, 60vh, 34rem);
+    background: var(--color-header-bg);
+    color: var(--color-on-photo);
+    overflow: hidden;
+    isolation: isolate;
+    @include ridgeline-edge(clamp(2rem, 5vw, 4.5rem));
+
+    // Darkening scrim keeps the title readable over any photo
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(to top, var(--color-scrim) 10%, transparent 70%);
+    }
+}
+
+.hero__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+}
+
+.hero__inner {
+    padding-bottom: clamp(3.5rem, 9vw, 6.5rem);
+}
+
+.hero__title {
+    margin: 0;
+    font-size: var(--text-3xl);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-shadow: var(--shadow-text);
+}
+
+.hero__tagline {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-lg);
+    font-style: italic;
+}
+
+// Post and page header band
+.post-hero {
+    position: relative;
+    background: var(--color-surface-alt);
+    overflow: hidden;
+    isolation: isolate;
+    margin-bottom: var(--space-5);
+    @include contour-texture;
+    @include ridgeline-edge(2.5rem);
+}
+
+.post-hero__inner {
+    position: relative;
+    padding-top: var(--space-6);
+    padding-bottom: calc(var(--space-6) + 1rem);
+}
+
+.post-hero--photo {
+    min-height: clamp(18rem, 50vh, 28rem);
+    display: flex;
+    align-items: flex-end;
+    color: var(--color-on-photo);
+    background: var(--color-header-bg);
+
+    // Photo replaces the contour texture; reuse ::before as the scrim
+    &::before {
+        z-index: -1;
+        opacity: 1;
+        mask: none;
+        -webkit-mask: none;
+        background: linear-gradient(to top, var(--color-scrim) 25%, var(--color-scrim-soft) 80%);
+    }
+
+    .post-hero__inner {
+        width: 100%;
+    }
+
+    .post-header__meta {
+        color: inherit;
+    }
+
+    .chip {
+        color: var(--color-on-photo);
+        border-color: var(--color-on-photo);
+
+        &:hover {
+            background: var(--color-on-photo);
+            color: var(--color-text-on-light);
+        }
+    }
+}
+
+.post-hero__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .post-header__meta {

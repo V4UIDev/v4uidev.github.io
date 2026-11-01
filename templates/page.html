@@ -4,11 +4,18 @@
 {% block description %}{{ <excerpt page={page} /> }}{% endblock description %}
 
 {% block content %}
+{% set cover = page.extra.cover or "" %}
 <article class="post">
-    <header class="post-header container container--narrow">
-        <p class="post-header__meta"><time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time></p>
-        <h1 class="post-header__title">{{ page.title }}</h1>
-        {% if page.taxonomies.categories %}{{ <chips kind="categories" terms={page.taxonomies.categories} /> }}{% endif %}
+    <header class="post-hero{% if cover %} post-hero--photo{% endif %}">
+        {% if cover %}
+        {% set img = resize_image(path=cover | trim_start(pat="/"), width=1600, op="fit_width") %}
+        <img class="post-hero__img" src="{{ img.url }}" alt="" fetchpriority="high">
+        {% endif %}
+        <div class="post-hero__inner container container--narrow">
+            <p class="post-header__meta"><time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time></p>
+            <h1 class="post-header__title">{{ page.title }}</h1>
+            {% if page.taxonomies.categories %}{{ <chips kind="categories" terms={page.taxonomies.categories} /> }}{% endif %}
+        </div>
     </header>
     <div class="prose container container--narrow">
         {{ page.content | safe }}

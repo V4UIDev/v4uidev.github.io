@@ -20,7 +20,10 @@
 {% set cover = page.extra.cover or "" %}
 <article class="post-card{% if not cover %} post-card--no-cover{% endif %}">
     <div class="post-card__media" aria-hidden="true">
-        {% if cover %}<img src="{{ get_url(path=cover) }}" alt="" loading="lazy">{% endif %}
+        {% if cover %}
+        {% set img = resize_image(path=cover | trim_start(pat="/"), width=720, op="fit_width") %}
+        <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}" alt="" loading="lazy">
+        {% endif %}
     </div>
     <div class="post-card__body">
         <p class="post-card__meta"><time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time></p>

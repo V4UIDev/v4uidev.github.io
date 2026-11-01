@@ -65,6 +65,7 @@ $bp-medium: 64rem;
     --width-prose: 42rem;
     --radius: 10px;
     --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-text: 0 2px 16px rgba(0, 0, 0, 0.35);
 
     // Colour: light (snow, granite, slate, moss, summit orange)
     --color-bg: #f6f5f1;
@@ -81,6 +82,8 @@ $bp-medium: 64rem;
     --color-contour: #4d6b45;
     --color-scrim: rgba(12, 17, 21, 0.72);
     --color-on-photo: #ffffff;
+    --color-text-on-light: #1f2528;
+    --color-scrim-soft: rgba(0, 0, 0, 0.15);
 }
 
 @mixin dark-colours {
@@ -99,6 +102,8 @@ $bp-medium: 64rem;
     --color-contour: #9cbf8f;
     --color-scrim: rgba(5, 8, 10, 0.75);
     --color-on-photo: #ffffff;
+    --color-text-on-light: #1f2528;
+    --color-scrim-soft: rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {

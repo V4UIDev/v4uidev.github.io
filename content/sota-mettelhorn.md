@@ -4,6 +4,8 @@ date = 2025-11-28
 [taxonomies]
 categories = ["SOTA"]
 tags = ["mountaineering", "amateur-radio", "SOTA"]
+[extra]
+cover = "/images/20250820_083903.jpg"
 +++
 
 The Mettelhorn, a fine summit that for me is the highest I have reached. In planning, I was torn between it and HB/VS-125 on the other side of the valley, Oberrothorn. I decided that, after realising the lift that takes you most of the way to Oberrothorn is closed due to rockfall, I would go for a less activated summit!

@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
+{% block hero %}
+{% set hero_path = "images/20250820_071517.jpg" %}
+{% set small = resize_image(path=hero_path, width=800, op="fit_width") %}
+{% set medium = resize_image(path=hero_path, width=1400, op="fit_width") %}
+{% set large = resize_image(path=hero_path, width=1920, op="fit_width") %}
+<section class="hero">
+    <img class="hero__img" src="{{ medium.url }}"
+         srcset="{{ small.url }} 800w, {{ medium.url }} 1400w, {{ large.url }} 1920w"
+         sizes="100vw" alt="" fetchpriority="high">
+    <div class="hero__inner container">
+        <h1 class="hero__title">{{ config.title }}</h1>
+        <p class="hero__tagline">{{ config.description }}</p>
+    </div>
+</section>
+{% endblock hero %}
+
 {% block content %}
 <section class="container">
     <h2 class="section-title">Latest posts</h2>
